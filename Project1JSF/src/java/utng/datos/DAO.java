@@ -44,7 +44,7 @@ public abstract class DAO<T> {
     }
     
     public void update(T modelo) throws HibernateException{
-        Transaction tx = session.getTransaction();
+        Transaction tx = session.beginTransaction();
         try {
             session.merge(modelo);
             tx.commit();
